@@ -19,14 +19,15 @@ function InputTodo(props) {
   }
 
   return (
-    <form onSubmit={handleSubmit}>
+    <form onSubmit={handleSubmit} className="form-container">
       <input
         type="text"
+        className="input-text"
         placeholder="Add todo..."
         value={title}
         onChange={onChange}
       />
-      <button>Submit</button>
+      <button className="input-submit">Submit</button>
     </form>
   )
 }
