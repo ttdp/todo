@@ -1,4 +1,4 @@
-import React, { useState } from "react"
+import React, { useState, useEffect } from "react"
 import { v4 as uuidv4 } from "uuid"
 
 import InputTodo from "./InputTodo"
@@ -22,8 +22,19 @@ const items = [
   }
 ]
 
+function getInitialTodos() {
+  const temp = localStorage.getItem("todos")
+  const savedTodos = JSON.parse(temp)
+  return savedTodos || []
+}
+
 function TodoContainer() {
-  const [todos, setTodos] = useState(items)
+  const [todos, setTodos] = useState(getInitialTodos())
+
+  useEffect(() => {
+    const temp = JSON.stringify(todos)
+    localStorage.setItem("todos", temp)
+  }, [todos])
 
   const handleChange = (id) => {
     const _todos = todos.map(todo => {

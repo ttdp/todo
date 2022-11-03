@@ -16,18 +16,14 @@ function TodoItem(props) {
   }
 
   const handleKeyDown = (e) => {
-    console.log(e.key)
     if (e.key === "Enter" || e.key === "Escape") {
       setEditing(false)
     }
   }
 
-  const hide = { display: "none" }
-  const show = { display: null }
-
   return (
     <li className={style.item}>
-      <div onDoubleClick={handleEditing} style={editing ? hide : show}>
+      <div onDoubleClick={handleEditing} style={editing ? { display: "none" } : null}>
         <input
           type="checkbox"
           checked={todo.completed}
@@ -43,7 +39,7 @@ function TodoItem(props) {
       </div>
       <input
         type="text"
-        style={editing ? show : hide}
+        style={editing ? null : { display: "none" }}
         value={todo.title}
         className={style.textInput}
         onChange={handleChange}
