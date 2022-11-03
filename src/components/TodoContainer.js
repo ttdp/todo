@@ -4,24 +4,6 @@ import { v4 as uuidv4 } from "uuid"
 import InputTodo from "./InputTodo"
 import TodosList from "./TodosList"
 
-const items = [
-  {
-    id: uuidv4(),
-    title: "Setup development environment",
-    completed: true
-  },
-  {
-    id: uuidv4(),
-    title: "Develop website and add content",
-    completed: false
-  },
-  {
-    id: uuidv4(),
-    title: "Deploy to live server",
-    completed: false
-  }
-]
-
 function getInitialTodos() {
   const temp = localStorage.getItem("todos")
   const savedTodos = JSON.parse(temp)
